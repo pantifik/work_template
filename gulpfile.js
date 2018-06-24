@@ -1,18 +1,19 @@
 const gulp        = require('gulp'),
-  browsersync = require('browser-sync').create(),
-  less        = require('gulp-less'),
-  replace     = require('gulp-replace'),
-  cheerio     = require('gulp-cheerio'),
-  svgSprite   = require('gulp-svg-sprite'),
-  svgmin      = require('gulp-svgmin'),
-  sourcemap   = require('gulp-sourcemaps'),
-  autopref    = require('gulp-autoprefixer'),
-  csscomb     = require('gulp-csscomb'),
-  gcmq        = require('gulp-group-css-media-queries'),
-  pug         = require('gulp-pug'),
-  notify      = require('gulp-notify'),
-  clean       = require('del');
-
+      browsersync = require('browser-sync').create(),
+      less        = require('gulp-less'),
+      replace     = require('gulp-replace'),
+      cheerio     = require('gulp-cheerio'),
+      svgSprite   = require('gulp-svg-sprite'),
+      svgmin      = require('gulp-svgmin'),
+      sourcemap   = require('gulp-sourcemaps'),
+      autopref    = require('gulp-autoprefixer'),
+      csscomb     = require('gulp-csscomb'),
+      gcmq        = require('gulp-group-css-media-queries'),
+      pug         = require('gulp-pug'),
+      notify      = require('gulp-notify'),
+      tiny        = require('gulp-tinypng'),
+      clean       = require('del');
+    
 const config = {
   product: {
     src: './product/index.html',
@@ -130,6 +131,12 @@ gulp.task('svg', function () {
              .pipe(browsersync.reload({
                stream: true
              }));
+});
+
+gulp.task('imgMin', function() {
+  return gulp.src(config.img.src)
+             .pipe(tiny('uz4LoDhNEfDLa4vpbO1S7SA2kGLGuTQ4'))
+             .pipe(gulp.dest(config.img.dest));
 });
 
 gulp.task('fonts', function() {

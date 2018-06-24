@@ -22,6 +22,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-svg-sprite": "^1.4.0",
     "gulp-svgmin": "^1.2.4",
+    "gulp-tinypng": "^1.0.2",
     "pug": "^2.0.3"
   },
   "dependencies": {
