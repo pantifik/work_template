@@ -13,42 +13,8 @@ const gulp        = require('gulp'),
       notify      = require('gulp-notify'),
       tiny        = require('gulp-tinypng'),
       clean       = require('del');
-    
-const config = {
-  product: {
-    src: './product/index.html',
-    dest: './product'
-  },
-  less: {
-    path: './dev/less',
-    src: './dev/less/main.less',
-    dest: './product/css'
-  },
-  pug: {
-    path: './dev/pug',
-    src: './dev/pug/pages/*.pug',
-    dest: './product'
-  },
-  svg: {
-    path: './dev/img/svg',
-    src: './dev/img/svg/*.svg',
-    dest: './product/img/svg'
-  },
-  img: {
-    path: './dev/img',
-    src: ['./dev/img/**/*.{png,jpg,gif,svg}', '!./dev/img/svg/**/*.svg'],
-    dest: './product/img'
-  },
-  js: {
-    path: './dev/scripts',
-    src: './dev/scripts/*.js',
-    dest: './product/scripts'
-  },
-  fonts: {
-    src: './dev/fonts/**/*.*',
-    dest: './product/fonts'
-  }
-};
+
+const config = require('./config');
 
 gulp.task('browsersync', function () {
   return browsersync.init({
@@ -135,7 +101,7 @@ gulp.task('svg', function () {
 
 gulp.task('imgMin', function() {
   return gulp.src(config.img.src)
-             .pipe(tiny('uz4LoDhNEfDLa4vpbO1S7SA2kGLGuTQ4'))
+             .pipe(tiny(config.tinypng))
              .pipe(gulp.dest(config.img.dest));
 });
 
