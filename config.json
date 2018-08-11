@@ -29,7 +29,8 @@
     "dest": "./product/scripts"
   },
   "fonts": {
-    "src": "./dev/fonts/**/*.*",
+    "path": "./dev/fonts",
+    "src": "./dev/fonts/**/*.{eot,ttf,woff,woff2,svg}",
     "dest": "./product/fonts"
   },
   "tinypng": "add_tinypngKey_here"
