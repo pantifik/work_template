@@ -3,9 +3,9 @@
     "src": "./product/index.html",
     "dest": "./product"
   },
-  "less": {
-    "path": "./dev/less",
-    "src": "./dev/less/main.less",
+  "sass": {
+    "path": "./dev/sass",
+    "src": "./dev/sass/main.scss",
     "dest": "./product/css"
   },
   "pug": {
